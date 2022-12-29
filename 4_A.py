@@ -50,11 +50,12 @@ if k > 0:
             if randomlist[i] > 0:
                 if hasData:
                     data.write(" + ")
-                if randomlist[i] > 1 and i > 0:
+                if randomlist[i] >= 1 and i > 0:
                     data.write(str(randomlist[i]) + "*x")
                 elif i == 0:
                     data.write(str(randomlist[i]))
-                writePowerString(data, i)
+                if i>1:
+                    writePowerString(data, i)
                 hasData = True
             i = i - 1
         data.write(" = 0")
