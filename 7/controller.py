@@ -19,7 +19,11 @@ def input_handler(inp):
             view.show_all(model.get_data())
         case 1:
             path = view.ask_filepath()
-            model.read_db(path)
+            if model.read_db(path):
+                print("The contact book loaded")
+            else:
+                print("Error: the contact book is not loaded")
+
 
         case 6: 
             quit()

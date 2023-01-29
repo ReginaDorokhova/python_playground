@@ -35,20 +35,23 @@ class ContactBook:
     def read_db(self, path):
         success = True 
         try:
-            with open('7/dataset.txt', 'r', encoding='UTF-8') as file:
+            with open('dataset.txt', 'r', encoding='UTF-8') as file:
                 my_list = file.readlines()
                 curId = 0 
                 for line in my_list:
                     line = line.strip().split(";")
-                    if len(line == 4):
+                    if len(line) == 4:
                         contact = Contact(line, curId)
                         self.contact_list.append(contact)
-                        urId = curId + 1
+                        curId = curId + 1
                         print(line)
                     else:
                         success = False
+
         except:
             success = False
+            print("Something went wrong")
+        return success
 
 
 
